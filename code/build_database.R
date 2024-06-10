@@ -17,7 +17,7 @@ load.all.data = function(from_raw = F) {
     lma.df <<- read.csv("data/lma_rehydrated.csv")
     
     # Do we need these? I think this gets done in the build_bm_data function
-    rasa.leaf <<- read.csv("data/rasa_leafy_biomass_fixed.csv")
+    rasa.leaf <<- read.csv("data/rasa_leafy_biomass.csv")
     hovu.leaf <<- read.csv("data/hovu_leafy_biomass.csv")
     
     # Clean lma data
@@ -216,7 +216,7 @@ build_photo_treatment = function() {
 
 build_thermal = function() {
   
-  all_files = list.files("data/thermal_data_new", recursive = T, full.names = T) %>% 
+  all_files = list.files("data/thermal_data", recursive = T, full.names = T) %>% 
     grep(".csv", ., value = T)
   
   data_raw = lapply(all_files, read.csv)
