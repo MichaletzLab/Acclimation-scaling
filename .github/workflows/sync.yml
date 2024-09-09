@@ -21,6 +21,11 @@ jobs:
     - name: Fetch upstream
       run: git fetch upstream
 
+    - name: Set up Git user
+      run: |
+        git config --local user.email "sean.michaletz@gmail.com"
+        git config --local user.name "Sean Michaletz"
+
     - name: Merge upstream changes
       run: git merge upstream/main --allow-unrelated-histories  # Add this flag to allow unrelated histories
 
