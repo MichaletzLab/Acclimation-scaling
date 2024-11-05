@@ -29,9 +29,10 @@ jobs:
         git config --local user.email "sean.michaletz@gmail.com"
         git config --local user.name "Sean Michaletz"
 
-    - name: Merge upstream changes with conflict resolution
-      run: |
-        git merge upstream/main --strategy-option theirs || true
+   - name: Merge upstream changes with unrelated histories and conflict resolution
+  run: |
+    git merge upstream/main --allow-unrelated-histories --strategy-option theirs || true
+
 
     - name: Push changes if merge was successful
       if: success()
